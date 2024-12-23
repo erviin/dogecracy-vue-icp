@@ -123,7 +123,7 @@ const submitSignature = async (svgData: any) => {
                     <div class='flex flex-col space-y-4 items-end'>
                         <div class="grid w-full items-center space-y-2 gap-1.5 text-black px-2 ">
                             <Label class="" htmlFor="name">Your name</Label>
-                            <Input :value="name" @change="(e: any) => setName(e.target?.value ?? '')" type="text"
+                            <Input v-model="name" @change="(e: any) => setName(e.target?.value ?? '')" type="text"
                                 id="name" placeholder="Your name to sign" />
                         </div>
                         <Button type="submit" class="font-intro bg-brand text-black hover:text-white w-fit">

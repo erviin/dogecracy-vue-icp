@@ -46,6 +46,8 @@ const setFundRaise = async (e: any) => {
             loading.value = true;
             const detail = await actor.setFundRaise(petitionId as string, BigInt(rawAmount.value), reason.value, dateStringToInt(endDate.value?.toString() ?? ''))
             console.log("detail", detail)
+            window.location.reload();
+
             if (detail.length > 0) {
                 // data.value = detail
                 //HARD RELOAD: TODO

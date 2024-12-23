@@ -57,11 +57,11 @@ const logout = async () => {
         </DropdownMenuTrigger>
         <DropdownMenuContent class="w-56 px-0 py-4 border-0 bg-black " data-align="left">
             <DropdownMenuItem class="p-0">
-                <RouterLink to="/profile"
+                <a href="/profile"
                     class="flex text-white items-center space-x-2 w-full h-full p-4 bg-black hover:bg-black/80 rounded-none  text-md font-intro">
                     <User2Icon />
                     <span>Your Profile</span>
-                </RouterLink>
+                </a>
             </DropdownMenuItem>
             <DropdownMenuItem class="p-0">
                 <Button @click="logout"

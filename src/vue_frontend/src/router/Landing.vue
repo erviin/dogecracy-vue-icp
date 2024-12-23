@@ -13,47 +13,25 @@ import { Badge } from '@/components/ui/badge'
   <main class="space-y-8">
     <section class="relative px-4 pt-16 pb-16 lg:pt-32 lg:pb-16">
       <div
-        class="container mx-auto space-x-0 space-y-12 text-center lg:flex lg:space-y-0 lg:flex-row lg:justify-between lg:items-center"
-      >
+        class="container mx-auto space-x-0 space-y-12 text-center lg:flex lg:space-y-0 lg:flex-row lg:justify-between lg:items-center">
         <div class="flex h-full lg:w-5/12 md:h-auto">
-          <div
-            v-motion
-            ::initial="{ opacity: 0, y: 20 }"
-            :enter="{ opacity: 1, y: 0 }"
-            :transition="{ duration: 0.3, delay: 0.1 }"
-          >
-            <img
-              alt="Democracy for justice"
-              height="1000"
-              width="750"
-              src="/images/justice-god.png"
-            />
+          <div v-motion ::initial="{ opacity: 0, y: 20 }" :enter="{ opacity: 1, y: 0 }"
+            :transition="{ duration: 0.3, delay: 0.1 }">
+            <img alt="Democracy for justice" height="1000" width="750" src="/images/justice-god.png" />
           </div>
         </div>
 
-        <div
-          ::initial="{ opacity: 0, y: 20 }"
-          :enter="{ opacity: 1, y: 0 }"
-          :transition="{ duration: 0.5, delay: 0.4 }"
-          class="absolute top-0 left-0 z-10 h-full px-4 py-16 xl:h-auto lg:relative lg:px-0 lg:py-0 bg-black/50 backdrop-blur"
-        >
-          <div
-            class="flex flex-col justify-center h-full space-y-8 text-center lg:flex-1 lg:items-center"
-          >
-            <div
-              :initial="{ opacity: 0, y: 20 }"
-              :enter="{ opacity: 1, y: 0 }"
-              :transition="{ duration: 0.5, delay: 0.6 }"
-            >
+        <div ::initial="{ opacity: 0, y: 20 }" :enter="{ opacity: 1, y: 0 }" :transition="{ duration: 0.5, delay: 0.4 }"
+          class="absolute top-0 left-0 z-10 h-full px-4 py-16 xl:h-auto lg:relative lg:px-0 lg:py-0 bg-black/50 backdrop-blur">
+          <div class="flex flex-col justify-center h-full space-y-8 text-center lg:flex-1 lg:items-center">
+            <div :initial="{ opacity: 0, y: 20 }" :enter="{ opacity: 1, y: 0 }"
+              :transition="{ duration: 0.5, delay: 0.6 }">
               <h1 class="text-4xl font-bold md:text-6xl font-intro">
                 THE ONLY DOGE FOR GOOD
               </h1>
             </div>
-            <div
-              :initial="{ opacity: 0, y: 20 }"
-              :enteranimate="{ opacity: 1, y: 0 }"
-              :transition="{ duration: 0.5, delay: 0.8 }"
-            >
+            <div :initial="{ opacity: 0, y: 20 }" :enteranimate="{ opacity: 1, y: 0 }"
+              :transition="{ duration: 0.5, delay: 0.8 }">
               <div class="max-w-2xl text-lg text-center lg:text-xl">
                 We are building the foundation for every type of DAO, empowering
                 communities to shape the future. Today at
@@ -61,11 +39,8 @@ import { Badge } from '@/components/ui/badge'
                 CHANGE for the social movement, petition and fundraising.
               </div>
             </div>
-            <div
-              :initial="{ opacity: 0, y: 20 }"
-              :enter="{ opacity: 1, y: 0 }"
-              :transition="{ duration: 0.5, delay: 0.1 }"
-            >
+            <div :initial="{ opacity: 0, y: 20 }" :enter="{ opacity: 1, y: 0 }"
+              :transition="{ duration: 0.5, delay: 0.1 }">
               <Button size="lg" class="text-brand font-intro hover:bg-brand/30">
                 Start Your Petition Today!
               </Button>
@@ -74,17 +49,10 @@ import { Badge } from '@/components/ui/badge'
         </div>
       </div>
     </section>
-    <div
-      :initial="{ opacity: 0, y: 20 }"
-      :enter="{ opacity: 1, y: 0 }"
-      :transition="{ duration: 0.5, delay: 0.12 }"
-    >
+    <div :initial="{ opacity: 0, y: 20 }" :enter="{ opacity: 1, y: 0 }" :transition="{ duration: 0.5, delay: 0.12 }">
       <section
-        class="container flex flex-col-reverse items-center px-4 py-8 mx-auto space-y-4 lg:py-16 lg:space-y-12 lg:flex-row lg:space-x-4"
-      >
-        <div
-          class="flex flex-col flex-1 mt-12 space-y-6 text-center lg:pr-8 lg:mt-0"
-        >
+        class="container flex flex-col-reverse items-center px-4 py-8 mx-auto space-y-4 lg:py-16 lg:space-y-12 lg:flex-row lg:space-x-4">
+        <div class="flex flex-col flex-1 mt-12 space-y-6 text-center lg:pr-8 lg:mt-0">
           <section class="text-center">
             <h1 class="mb-1 text-2xl font-intro lg:text-5xl text-brand">
               What is Dogecracy?
@@ -100,28 +68,19 @@ import { Badge } from '@/components/ui/badge'
             <Badge class="font-intro bg-gray-950 text-brand">DAO</Badge>
             (Decentralized Autonomous Organization) platform built on Web3 and
             blockchain technology.
-            <Badge class="font-intro bg-gray-950 text-brand"
-              >It’s designed to empower social movements</Badge
-            >, amplify voices, and create
-            <Badge class="font-intro bg-gray-950 text-brand"
-              >real-world impact</Badge
-            >
+            <Badge class="font-intro bg-gray-950 text-brand">It’s designed to empower social movements</Badge>, amplify
+            voices, and create
+            <Badge class="font-intro bg-gray-950 text-brand">real-world impact</Badge>
             through decentralized petitions, transparent governance, and
             innovative fundraising mechanisms.
             <br />
             At its core, Dogecracy
-            <Badge class="font-intro bg-gray-950 text-brand"
-              >revolutionizes</Badge
-            >
+            <Badge class="font-intro bg-gray-950 text-brand">revolutionizes</Badge>
             traditional petitions by turning them into
-            <Badge class="font-intro bg-gray-950 text-brand"
-              >NFT-backed</Badge
-            >
+            <Badge class="font-intro bg-gray-950 text-brand">NFT-backed</Badge>
             records that are immutable and verifiable. The platform goes beyond
             signatures, integrating fundraising and tokenization to
-            <Badge class="font-intro bg-gray-950 text-brand"
-              >transform</Badge
-            >
+            <Badge class="font-intro bg-gray-950 text-brand">transform</Badge>
             petitions into actionable and productive movements. Supporters can
             even
             <Badge class="font-intro bg-gray-950 text-brand">launch</Badge>
@@ -129,40 +88,22 @@ import { Badge } from '@/components/ui/badge'
             profit-sharing, and sustainable change.
             <br />
             With Dogecracy, people have a platform where their
-            <Badge class="font-intro bg-gray-950 text-brand"
-              >voices matter</Badge
-            >, their causes are heard, and their collective actions can
-            <Badge class="font-intro bg-gray-950 text-brand"
-              >shape the future.</Badge
-            >
+            <Badge class="font-intro bg-gray-950 text-brand">voices matter</Badge>, their causes are heard, and their
+            collective actions can
+            <Badge class="font-intro bg-gray-950 text-brand">shape the future.</Badge>
             It’s more than a platform
-            <Badge class="font-intro bg-gray-950 text-brand"
-              >it’s a decentralized movement for change</Badge
-            >
+            <Badge class="font-intro bg-gray-950 text-brand">it’s a decentralized movement for change</Badge>
           </div>
         </div>
         <div class="p-4 rounded-full bg-brand-white">
-          <img
-            src="/icon.ico"
-            height="750"
-            width="500"
-            alt="What is dogecracy?"
-          />
+          <img src="/icon.ico" height="750" width="500" alt="What is dogecracy?" />
         </div>
       </section>
     </div>
-    <div
-      :initial="{ opacity: 0, y: 20 }"
-      :enter="{ opacity: 1, y: 0 }"
-      :transition="{ duration: 0.5, delay: 0.14 }"
-    >
-      <section
-        class="container px-4 mx-auto space-y-4 lg:px-0 lg:py-16 lg:space-y-8"
-      >
+    <div :initial="{ opacity: 0, y: 20 }" :enter="{ opacity: 1, y: 0 }" :transition="{ duration: 0.5, delay: 0.14 }">
+      <section class="container px-4 mx-auto space-y-4 lg:px-0 lg:py-16 lg:space-y-8">
         <section class="text-center">
-          <h1
-            class="mb-4 text-2xl font-bold lg:text-4xl font-intro text-brand-white"
-          >
+          <h1 class="mb-4 text-2xl font-bold lg:text-4xl font-intro text-brand-white">
             Empowering Change with Decentralized Petitions
           </h1>
           <p class="text-md lg:text-xl text-brand-white">
@@ -176,9 +117,7 @@ import { Badge } from '@/components/ui/badge'
               <CardHeader>
                 <CardTitle class="space-x-2 font-intro">
                   <Badge class="mb-2 bg-brand font-intro">1</Badge>
-                  <span class="text-brand-white"
-                    >Why Decentralized Petitions?</span
-                  >
+                  <span class="text-brand-white">Why Decentralized Petitions?</span>
                 </CardTitle>
               </CardHeader>
               <CardContent class="text-brand-white">
@@ -195,9 +134,7 @@ import { Badge } from '@/components/ui/badge'
               <CardHeader>
                 <CardTitle class="space-x-2 font-intro">
                   <Badge class="mb-2 bg-brand font-intro">2</Badge>
-                  <span class="text-brand-white"
-                    >A Voice for Everyone, Powered by DAO</span
-                  >
+                  <span class="text-brand-white">A Voice for Everyone, Powered by DAO</span>
                 </CardTitle>
               </CardHeader>
               <CardContent class="text-brand-white">
@@ -216,10 +153,8 @@ import { Badge } from '@/components/ui/badge'
             <CardHeader>
               <CardTitle class="space-x-2 font-intro">
                 <Badge class="mb-2 bg-brand font-intro">2</Badge>
-                <span class="text-brand-white"
-                  >Beyond Signatures – Integrated Fundraising and
-                  Tokenization</span
-                >
+                <span class="text-brand-white">Beyond Signatures – Integrated Fundraising and
+                  Tokenization</span>
               </CardTitle>
             </CardHeader>
             <CardContent class="space-y-4 text-brand-white">
@@ -266,25 +201,16 @@ import { Badge } from '@/components/ui/badge'
             <Badge variant="secondary">Blockchain</Badge>
             <Badge variant="secondary">DAO</Badge>
           </div>
-          <Button
-            size="lg"
-            class="mt-8 text-brand font-intro hover:bg-brand/30"
-          >
+          <Button size="lg" class="mt-8 text-brand font-intro hover:bg-brand/30">
             Spread your voice
           </Button>
         </div>
       </section>
     </div>
-    <div
-      :initial="{ opacity: 0, y: 20 }"
-      :enter="{ opacity: 1, y: 0 }"
-      :transition="{ duration: 0.5, delay: 0.16 }"
-    >
+    <div :initial="{ opacity: 0, y: 20 }" :enter="{ opacity: 1, y: 0 }" :transition="{ duration: 0.5, delay: 0.16 }">
       <section class="container px-4 py-16 mx-auto space-y-16 lg:px-0 ">
         <section class="text-center">
-          <h1
-            class="mb-4 text-2xl font-bold lg:text-4xl font-intro text-brand-white"
-          >
+          <h1 class="mb-4 text-2xl font-bold lg:text-4xl font-intro text-brand-white">
             Redefining Fundraising:Transparency and Accountability in Action
           </h1>
           <p class="text-md lg:text-lg text-brand-white">
@@ -294,16 +220,10 @@ import { Badge } from '@/components/ui/badge'
         </section>
         <div class="flex flex-col lg:flex-row">
           <div class="w-full lg:w-5/12">
-            <iframe
-              width="100%"
-              height="350"
-              src="https://www.youtube.com/embed/Wa4vhXMbRIA?si=G5qwheKu8SMCOTyM"
-              title="YouTube video player"
-              frameBorder="0"
+            <iframe width="100%" height="350" src="https://www.youtube.com/embed/Wa4vhXMbRIA?si=G5qwheKu8SMCOTyM"
+              title="YouTube video player" frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            ></iframe>
+              referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
           </div>
           <div class="flex-1 space-y-2 lg:px-4 lg:space-y-4">
             <h1 class="text-3xl font-intro lg:text-5xl text-brand">
@@ -333,10 +253,8 @@ import { Badge } from '@/components/ui/badge'
               <CardHeader>
                 <CardTitle class="space-x-2 font-intro">
                   <Badge class="mb-2 bg-brand font-intro">1</Badge>
-                  <span class="text-brand"
-                    >Breaking the Myths: Blockchain is Transparent, Not
-                    Secretive</span
-                  >
+                  <span class="text-brand">Breaking the Myths: Blockchain is Transparent, Not
+                    Secretive</span>
                 </CardTitle>
               </CardHeader>
               <CardContent class="text-brand/80">
@@ -353,9 +271,7 @@ import { Badge } from '@/components/ui/badge'
               <CardHeader>
                 <CardTitle class="space-x-2 font-intro">
                   <Badge class="mb-2 bg-brand font-intro">3</Badge>
-                  <span class="text-brand"
-                    >Our Vision: A Transparent and Collaborative Future</span
-                  >
+                  <span class="text-brand">Our Vision: A Transparent and Collaborative Future</span>
                 </CardTitle>
               </CardHeader>
               <CardContent class="text-brand/80">
@@ -368,26 +284,12 @@ import { Badge } from '@/components/ui/badge'
                   while restoring faith in collective action.
                 </p>
                 <div class="flex flex-wrap gap-2 mt-4">
-                  <Badge
-                    variant="secondary"
-                    class="bg-brand/20 hover:bg-brand/30 text-brand-white"
-                    >Transparency</Badge
-                  >
-                  <Badge
-                    variant="secondary"
-                    class="bg-brand/20 hover:bg-brand/30 text-brand-white"
-                    >Accountability</Badge
-                  >
-                  <Badge
-                    variant="secondary"
-                    class="bg-brand/20 hover:bg-brand/30 text-brand-white"
-                    >Blockchain</Badge
-                  >
-                  <Badge
-                    variant="secondary"
-                    class="bg-brand/20 hover:bg-brand/30 text-brand-white"
-                    >Decentralized Governance</Badge
-                  >
+                  <Badge variant="secondary" class="bg-brand/20 hover:bg-brand/30 text-brand-white">Transparency</Badge>
+                  <Badge variant="secondary" class="bg-brand/20 hover:bg-brand/30 text-brand-white">Accountability
+                  </Badge>
+                  <Badge variant="secondary" class="bg-brand/20 hover:bg-brand/30 text-brand-white">Blockchain</Badge>
+                  <Badge variant="secondary" class="bg-brand/20 hover:bg-brand/30 text-brand-white">Decentralized
+                    Governance</Badge>
                 </div>
               </CardContent>
             </Card>
@@ -397,16 +299,12 @@ import { Badge } from '@/components/ui/badge'
             <CardHeader>
               <CardTitle class="space-x-2 font-intro">
                 <Badge class="mb-2 bg-brand font-intro">2</Badge>
-                <span class="text-brand"
-                  >Beyond Fundraising: From Donations to Solutions</span
-                >
+                <span class="text-brand">Beyond Fundraising: From Donations to Solutions</span>
               </CardTitle>
             </CardHeader>
             <CardContent class="space-y-4 text-brand-white">
               <div class="space-y-2">
-                <h3
-                  class="flex items-center text-xl font-semibold text-brand"
-                >
+                <h3 class="flex items-center text-xl font-semibold text-brand">
                   <CheckCircle2 class="mr-2" /> Accountable Spending
                 </h3>
                 <p>
@@ -423,9 +321,7 @@ import { Badge } from '@/components/ui/badge'
                 <p>This ensures funds are used exactly as intended.</p>
               </div>
               <div class="space-y-2">
-                <h3
-                  class="flex items-center text-xl font-semibold text-brand"
-                >
+                <h3 class="flex items-center text-xl font-semibold text-brand">
                   <CheckCircle2 class="mr-2" /> Empowering Contributors
                 </h3>
                 <p>
@@ -434,9 +330,7 @@ import { Badge } from '@/components/ui/badge'
                 </p>
               </div>
               <div class="space-y-2">
-                <h3
-                  class="flex items-center text-xl font-semibold text-brand"
-                >
+                <h3 class="flex items-center text-xl font-semibold text-brand">
                   <CheckCircle2 class="mr-2" /> Integrating Stablecoin
                   Commerce
                 </h3>
@@ -470,9 +364,7 @@ import { Badge } from '@/components/ui/badge'
               <Badge class="text-brand font-intro">DAO</Badge> (Decentralized
               Autonomous Organization) is like an online community or group that
               runs itself using
-              <Badge class="text-brand font-intro"
-                >blockchain technology.</Badge
-              >
+              <Badge class="text-brand font-intro">blockchain technology.</Badge>
               Instead of relying on
               <Badge class="text-brand font-intro">a single leader</Badge> or
               <Badge class="text-brand font-intro">a central institution</Badge>
@@ -482,14 +374,13 @@ import { Badge } from '@/components/ui/badge'
               <div class="my-2 text-brand font-intro">How it works?</div>
               <ul>
                 <li>
-                  <Badge class="text-brand font-intro"> Members Join</Badge
-                  >People join a DAO by buying or earning its tokens, which
+                  <Badge class="text-brand font-intro"> Members Join</Badge>People join a DAO by buying or earning its
+                  tokens, which
                   often act like a membership pass.
                 </li>
                 <li>
-                  <Badge class="text-brand font-intro"
-                    >Decisions Are Voted On</Badge
-                  >Members use their tokens to vote on important decisions, like
+                  <Badge class="text-brand font-intro">Decisions Are Voted On</Badge>Members use their tokens to vote on
+                  important decisions, like
                   how to use funds or start projects.
                 </li>
                 <li>
@@ -498,9 +389,7 @@ import { Badge } from '@/components/ui/badge'
                   see what’s happening.
                 </li>
               </ul>
-              <div
-                class="p-2 mt-4 text-black rounded-lg lg:mt-1 bg-brand font-intro"
-              >
+              <div class="p-2 mt-4 text-black rounded-lg lg:mt-1 bg-brand font-intro">
                 Think of it as a group project where everyone has a say, the
                 rules are fair, and there’s no middleman—just code ensuring
                 everything works smoothly.
@@ -510,9 +399,7 @@ import { Badge } from '@/components/ui/badge'
           <div class="flex-1">
             <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               <div class="p-6 bg-gray-900 rounded-lg shadow-lg">
-                <h3
-                  class="mb-4 text-xl font-semibold text-brand font-intro"
-                >
+                <h3 class="mb-4 text-xl font-semibold text-brand font-intro">
                   Your Voice, Decentralized
                 </h3>
                 <p>
@@ -521,9 +408,7 @@ import { Badge } from '@/components/ui/badge'
                 </p>
               </div>
               <div class="p-6 bg-gray-900 rounded-lg shadow-lg">
-                <h3
-                  class="mb-4 text-xl font-semibold text-brand font-intro"
-                >
+                <h3 class="mb-4 text-xl font-semibold text-brand font-intro">
                   Fund Change Securely
                 </h3>
                 <p>
@@ -532,9 +417,7 @@ import { Badge } from '@/components/ui/badge'
                 </p>
               </div>
               <div class="p-6 bg-gray-900 rounded-lg shadow-lg">
-                <h3
-                  class="mb-4 text-xl font-semibold text-brand font-intro"
-                >
+                <h3 class="mb-4 text-xl font-semibold text-brand font-intro">
                   DAO for Every Cause
                 </h3>
                 <p>
@@ -543,9 +426,7 @@ import { Badge } from '@/components/ui/badge'
                 </p>
               </div>
               <div class="p-6 bg-gray-900 rounded-lg shadow-lg">
-                <h3
-                  class="mb-4 text-xl font-semibold text-brand font-intro"
-                >
+                <h3 class="mb-4 text-xl font-semibold text-brand font-intro">
                   Empowered by Blockchain
                 </h3>
                 <p>
@@ -554,9 +435,7 @@ import { Badge } from '@/components/ui/badge'
                 </p>
               </div>
               <div class="p-6 bg-gray-900 rounded-lg shadow-lg">
-                <h3
-                  class="mb-4 text-xl font-semibold text-brand font-intro"
-                >
+                <h3 class="mb-4 text-xl font-semibold text-brand font-intro">
                   Join the Movement
                 </h3>
                 <p>

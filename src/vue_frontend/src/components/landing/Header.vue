@@ -14,14 +14,14 @@ import LoginButton from '../ui/dfinity/LoginButton.vue';
             <span class='text-red-500'>WARNING</span>: THIS WEBSITE & PROJECT IS UNDER DEVELOPMENT!
         </div>
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <RouterLink :to="{ name: 'profile' }">
+            <a href="/">
                 <img class="text-2xl h-16 font-bold text-brand-white" alt="DOGECRACY LOGO" src="/images/logo.png" />
-            </RouterLink>
+            </a>
             <nav class="hidden xl:flex xl:space-x-6 xl:font-intro">
-                <RouterLink to="/explore-petitions" class="hover:text-[#FFAC43]">Explorer Petitions</RouterLink>
-                <RouterLink to="#about" class="text-brand-white hover:text-brand-white/80">Fundraising</RouterLink>
-                <RouterLink to="#about" class="text-brand-white hover:text-brand-white/80">Petition Token</RouterLink>
-                <RouterLink to="#about" class="text-brand hover:text-brand/80">$DOGECY</RouterLink>
+                <a href="/explore-petitions" class="hover:text-[#FFAC43]">Explorer Petitions</a>
+                <a href="#about" class="text-brand-white hover:text-brand-white/80">Fundraising</a>
+                <a href="#about" class="text-brand-white hover:text-brand-white/80">Petition Token</a>
+                <a href="#about" class="text-brand hover:text-brand/80">$DOGECY</a>
             </nav>
             <div class="flex items-center space-x-4 font-intro">
                 <Button class="text-brand font-intro hover:bg-[#FFAC43]/80 hover:text-black hidden md:flex">
