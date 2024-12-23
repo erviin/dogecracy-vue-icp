@@ -7,10 +7,12 @@ import { createActor } from 'declarations/vue_backend/index'
 import { createActor as createActorDogecy, canisterId as DogecyCanisterId  } from 'declarations/icrc1/index'
 import Profile from './router/Profile.vue'
 import Detail from './router/Detail.vue'
+import Explore from './router/Explore.vue'
 
 const routes = [
     { path: '/', name: "landing", component: Landing },
     { path: '/petition/:id', name: "detail", component: Detail },
+    { path: '/explore-petitions', name: "explore", component: Explore },
 
     {
         path: '/profile/',

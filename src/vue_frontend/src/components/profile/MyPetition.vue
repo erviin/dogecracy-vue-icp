@@ -10,6 +10,7 @@ import Card from '../ui/card/Card.vue';
 import CardContent from '../ui/card/CardContent.vue';
 import CardFooter from '../ui/card/CardFooter.vue';
 import Badge from '../ui/badge/Badge.vue';
+import { formatDate } from '@/lib/utils';
 
 const { actor } = IcpStore
 const data = ref<undefined | [string, Base][]>([[], [], []])
@@ -52,11 +53,11 @@ async function fetchData(id: string | string[]) {
                         <div class="text-xs flex items-center gap-x-1 w-6/12">
                             <CircleUser class="size-3 -mt-[1px]" />
                             <span class="text-[#15e6b7] flex-1 overflow-hidden text-nowrap text-ellipsis">
-                                {principal}
+                                {{ item[1]?.petitionId }}
                             </span>
                         </div>
                         <div class="text-xs flex-shrink-0">
-                            1/1/2025
+                            {{ formatDate(item[1]?.created) }}
                         </div>
                     </div>
                     <div class="text-sm line-clamp-4 text-gray-300" v-html="item[1].petitionDesc" />

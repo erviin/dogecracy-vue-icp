@@ -56,13 +56,17 @@ const setName = (val: string) => {
 
 const prepareVotePetition = (e: any) => {
     e.preventDefault();
-    if (isAuthenticated && params.id) {
+    if (isAuthenticated && params.id && name.value.trim().length > 0) {
         setOpen(false);
         loading.value = true;
         submitting.value = true;
         postingState.value = "Signing"
     } else {
-        alert("please login")
+        if (name.value.trim().length < 1) {
+            alert("Give your name or nickname")
+        } else {
+            alert("please login")
+        }
     }
 }
 
@@ -74,7 +78,7 @@ const submitSignature = async (svgData: any) => {
             const svgBlob = new Blob([svgData], { type: 'image/svg+xml;' })
             const arrayBuffer = await svgBlob.arrayBuffer();
             const uint8Array = new Uint8Array(arrayBuffer);
-            console.log("VOTINGGG", uint8Array)
+
             const status = await actor.votePetition(
                 params.id as string,
                 name.value,
@@ -82,9 +86,11 @@ const submitSignature = async (svgData: any) => {
             )
             if (status) {
                 mySign.value = status;
+                //HARD RELOAD: TODO
+                window.location.reload();
                 isSigned.value = true
             } else {
-                isSigned.value = true
+                throw new Error("Failed top submit")
 
             }
 
@@ -128,7 +134,7 @@ const submitSignature = async (svgData: any) => {
                 </form>
             </DialogContent>
         </Dialog>
-        <AnimateSignature v-if="(name.length > 0 && submitting) || isSigned" :text="name" :isSigned="isSigned"
+        <AnimateSignature v-if="(name.trim().length > 0 && submitting) || isSigned" :text="name" :isSigned="isSigned"
             :mySign="mySign" :submitSignature="submitSignature" />
         <Button v-if="!isSigned" :disabled="loading || isSigned"
             class="text-lg bg-[#FFAC43] text-black w-full h-12 font-semibold hover:bg-black hover:text-[#FFAC43] border border-black hover:border-[#FFAC43] "

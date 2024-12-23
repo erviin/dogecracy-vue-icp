@@ -22,7 +22,6 @@ const animateString = (text: any) => {
 }
 watch(() => text, animateString, { immediate: true })
 
-console.log("text", text);
 
 </script>
 <template>

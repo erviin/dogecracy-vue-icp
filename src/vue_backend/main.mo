@@ -86,6 +86,26 @@ actor DogecracyBase {
 
   };
 
+  public query func getAllPetitions(): async  [(Text, PetitionTypes.Base)] {
+    var result: [(Text, [(Text, PetitionTypes.Base)])] = [];
+    // REFACTOR TO BE MORE EFFICIENT FOR EXPLORE-PETITIONS
+    // 1 level
+    var allInnerResult: [(Text, PetitionTypes.Base)] = [];
+    for ((outerKey, innerMap) in petitions.entries()) {
+        var innerResult: [(Text, PetitionTypes.Base)] = [];
+
+        // 2 level
+        for ((innerKey, base) in innerMap.entries()) {
+            innerResult := Array.append(innerResult, [(innerKey, base)]);
+            allInnerResult := Array.append(allInnerResult, [(innerKey, base)]);
+        };
+
+        result := Array.append(result, [(outerKey, innerResult)]);
+    };
+
+    return allInnerResult;
+  };
+
   public query ({ caller }) func getMyPetitions() : async [(Text, PetitionTypes.Base)] {
     let callerText = Principal.toText(caller);
 

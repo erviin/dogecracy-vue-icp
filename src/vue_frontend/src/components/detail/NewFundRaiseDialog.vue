@@ -48,6 +48,8 @@ const setFundRaise = async (e: any) => {
             console.log("detail", detail)
             if (detail.length > 0) {
                 // data.value = detail
+                //HARD RELOAD: TODO
+                window.location.reload();
                 loading.value = false;
             } else {
                 throw new Error("NOT_EXISTS")
@@ -74,7 +76,7 @@ const handleAmountInput = () => {
         <DialogContent :onPointerDownOutside="(e) => e.preventDefault()" :onEscapeKeyDown="(e) => e.preventDefault()"
             class=" flex flex-col w-[30vw] h-fit overflow-y-auto bg-brand-white/80 backdrop-blur border-brand !max-w-full overflow-hidden">
             <DialogHeader class="h-fit">
-                <DialogTitle class="font-intro text-black">Support this petition</DialogTitle>
+                <DialogTitle class="font-intro text-black">Fundraising for this petition</DialogTitle>
                 <Button variant="ghost" size="icon" class="absolute right-4 top-4 text-black hover:bg-brand"
                     @click="() => setOpen(false)">
                     <X />
@@ -121,7 +123,7 @@ const handleAmountInput = () => {
                     <Button :disabled="loading" type="submit"
                         class="font-intro bg-brand text-black hover:text-white w-fit">
                         <Loader2 v-if="loading" class="animate-spin" />
-                        Vote Now
+                        RUN CAMPAIGN
                     </Button>
                 </div>
 

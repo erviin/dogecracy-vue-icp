@@ -46,7 +46,6 @@ const fetchData = async (petitionId: string | string[]) => {
             if (detail.length > 0) {
                 data.value = detail[0]
                 const total = await actor.getTotalRaised(petitionId as string)
-                console.log("mine", total);
 
                 totalRaised.value = Number(total);
                 if (totalRaised.value > 0) {

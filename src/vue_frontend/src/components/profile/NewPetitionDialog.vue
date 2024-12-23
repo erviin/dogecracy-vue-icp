@@ -54,6 +54,8 @@ const onSubmit = async (e: Event) => {
                 const fileBlob = await file.arrayBuffer();
                 const uint8Array = new Uint8Array(fileBlob);
                 const sub = await actor.createPetition(petitionName.value, description.value, uint8Array);
+                //HARD RELOAD : TODO
+                window.location.reload();
                 return sub;
 
             }
