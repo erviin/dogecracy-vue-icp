@@ -4,6 +4,8 @@ import { defineConfig } from 'vite';
 import environment from 'vite-plugin-environment';
 import vue from '@vitejs/plugin-vue';
 import dotenv from 'dotenv';
+import autoprefixer from 'autoprefixer'
+import tailwind from 'tailwindcss'
 
 dotenv.config({ path: '../../.env' });
 
@@ -17,6 +19,8 @@ export default defineConfig({
         global: 'globalThis',
       },
     },
+        exclude: ['@dfinity/ledger-icrc']
+
   },
   server: {
     proxy: {
@@ -24,6 +28,11 @@ export default defineConfig({
         target: 'http://127.0.0.1:4943',
         changeOrigin: true,
       },
+    },
+  },
+  css: {
+    postcss: {
+      plugins: [tailwind(), autoprefixer()],
     },
   },
   plugins: [

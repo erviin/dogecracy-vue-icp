@@ -1,6 +1,9 @@
 <script setup>
 import { ref } from 'vue';
 import { vue_backend } from 'declarations/vue_backend/index';
+import Button from './components/ui/button/Button.vue';
+import Header from './components/landing/Header.vue';
+import Footer from './components/landing/Footer.vue';
 let greeting = ref('');
 
 async function handleSubmit(e) {
@@ -14,15 +17,21 @@ async function handleSubmit(e) {
 </script>
 
 <template>
-  <main>
+  <div class="min-h-screen bg-black text-brand-white flex flex-col justify-between">
+    <Header></Header>
+    <RouterView />
+    <Footer></Footer>
+
+  </div>
+  <!-- <main>
     <img src="/logo2.svg" alt="DFINITY logo" />
     <br />
     <br />
     <form action="#" @submit="handleSubmit">
       <label for="name">Enter your name: &nbsp;</label>
       <input id="name" alt="Name" type="text" />
-      <button type="submit">Click Me!</button>
+      <Button>Click Me</Button>
     </form>
     <section id="greeting">{{ greeting }}</section>
-  </main>
+  </main> -->
 </template>

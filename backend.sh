@@ -1,0 +1,1 @@
+dfx deploy internet_identity && dfx deploy vue_backend 

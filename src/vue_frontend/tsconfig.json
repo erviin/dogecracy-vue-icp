@@ -18,6 +18,15 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "ESNext",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "declarations": [
+        "./../declarations/*"
+      ]
+    },
     "types": [
       "vite/client",
       "@testing-library/jest-dom"
@@ -26,6 +35,7 @@
   },
   "extends": "@vue/tsconfig/tsconfig.json",
   "include": [
-    "src"
+    "src",
+    "./@components/**/*.vue" // Added
   ]
 }

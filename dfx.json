@@ -1,7 +1,7 @@
 {
   "canisters": {
     "internet_identity": {
-      "candid": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity.did",
+      "candid": "https://github.com/dfinity/internet-identity/releases/download/release-2024-12-06/internet_identity.did",
       "frontend": {},
       "remote": {
         "id": {
@@ -9,11 +9,15 @@
         }
       },
       "type": "custom",
-      "wasm": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity_dev.wasm.gz"
+      "wasm": "https://github.com/dfinity/internet-identity/releases/download/release-2024-12-06/internet_identity_dev.wasm.gz"
     },
     "vue_backend": {
       "main": "src/vue_backend/main.mo",
       "type": "motoko"
+    },
+     "icrc1": {
+      "type": "motoko",
+      "main": "src/vue_backend/ICRC1/Canisters/Token.mo"
     },
     "vue_frontend": {
       "dependencies": [
@@ -29,7 +33,7 @@
   "defaults": {
     "build": {
       "args": "",
-      "packtool": ""
+      "packtool": "mops sources"
     }
   },
   "output_env_file": ".env",

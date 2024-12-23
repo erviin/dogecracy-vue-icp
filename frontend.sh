@@ -1,0 +1,1 @@
+dfx deploy vue_frontend
