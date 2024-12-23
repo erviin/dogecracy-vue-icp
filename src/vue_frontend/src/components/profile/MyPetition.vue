@@ -17,14 +17,11 @@ const loading = ref(false)
 watch(() => route.params.id, fetchData, { immediate: true })
 
 async function fetchData(id: string | string[]) {
-    console.log("FETCH ON", id);
     if (actor) {
         loading.value = true;
         const res = await actor.getMyPetitions();
-
         data.value = res;
         loading.value = false;
-
     }
 }
 </script>
@@ -33,7 +30,11 @@ async function fetchData(id: string | string[]) {
 
 <template>
     <div class="flex flex-wrap">
-        <RouterLink v-for="(item, index) in data" :key="index"
+        <div v-if="data !== undefined && data.length == 0"
+            class="text-center text-xl p-4 w-full bg-gray-900 rounded-xl my-6">
+            No records found
+        </div>
+        <RouterLink v-if="data == undefined || data.length > 0" v-for="(item, index) in data" :key="index"
             :to="{ name: 'detail', params: { id: item[1]?.petitionId ?? '#' } }"
             class=" w-full md:w-6/12 xl:w-4/12 p-1 ">
             <Card class=" py-2 overflow-hidden bg-gray-950 text-brand-white border-gray-800 h-fit">

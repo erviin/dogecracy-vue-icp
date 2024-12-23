@@ -36,8 +36,46 @@ module {
             };
         };
 
-        public func setFundRaise(caller:Principal, petitionId:Text, amountToRaise: Nat, reason:Text, endDate: Int) : async Text {
-            // TODO : VERIFY IF IT"S THE OWNER HERE 
+        public func getTotalRaised(petitionId:Text) :async Nat {
+            var total:Nat = 0;
+             switch(donations.get(petitionId)) {
+                case (null) {
+                    total := 0;
+                };
+                case (?existing) {
+                   for ((_, donation) in existing.entries()) {
+                        total += donation.amount;
+                    };
+                };
+            };
+            total
+        };
+        
+        public func getDonations(petitionId:Text) :async [(Text, FundRaiseTypes.Donation)] {
+            switch (donations.get(petitionId)) {
+                case (?donation) {
+                    return Iter.toArray(donation.entries());
+                };
+                case (_) {
+                    return [];
+                };
+            };
+        };
+
+        public func getMyDonations(caller:Principal, petitionId:Text) :async ?FundRaiseTypes.Donation {
+            let callerText = Principal.toText(caller);
+            switch (donations.get(petitionId)) {
+                case (?donation) {
+                    return donation.get(callerText);
+                };
+                case (_) {
+                    return null;
+                };
+            };
+        };
+
+
+        public func setFundRaise(petitionId:Text, amountToRaise: Nat, reason:Text, endDate: Int) : async Text {
             let createdTime : Int = Time.now() / 1_000_000_000;
               let newFundRaise = {
                         petitionId = petitionId;
@@ -72,7 +110,7 @@ module {
 
 
 
-         public func preUpgrade() :   [var (Text, FundRaiseTypes.FundBase)]{
+         public func preUpgrade() :   [([var (Text, FundRaiseTypes.FundBase)], [var (Text, [(Text, FundRaiseTypes.Donation)])])]{
             var size : Nat = petitionFundRaise.size();
             var n: FundRaiseTypes.FundBase = {
                         petitionId = "petitionId";
@@ -88,14 +126,32 @@ module {
                 size += 1;
             };
 
-            temp
+            // DONATION
+            var sizeDonation : Nat = donations.size();
+            var tempDonation : [var (Text, [(Text, FundRaiseTypes.Donation)])] = Array.init(sizeDonation, ("aaaa-aaa", []));
+            sizeDonation := 0;
+            for ((kD, vD) in donations.entries()) {
+                tempDonation[sizeDonation] := (kD, Iter.toArray(vD.entries()));
+                sizeDonation += 1;
+            };
+            // END DONATION
+
+            [(temp, tempDonation)]
+
         };
 
-        public func postUpgrade(stableData: [(Text, FundRaiseTypes.FundBase)]) : Text {
-            for ((kv, vv) in stableData.vals()) {
+        public func postUpgrade(sFundRaise: [(Text, FundRaiseTypes.FundBase)], sDonation: [(Text, [(Text, FundRaiseTypes.Donation)])])  {
+            for ((kv, vv) in sFundRaise.vals()) {
                 petitionFundRaise.put(kv, vv);
             };
-            "ok"
+
+            // DONATION
+            for ((kD, vD) in sDonation.vals()) {
+                let allowed_tempD = HashMap.fromIter<Text, FundRaiseTypes.Donation>(vD.vals(), 1, Text.equal, Text.hash);
+                donations.put(kD, allowed_tempD);
+            };
+            // END DONATION
+
         }
     }
 }

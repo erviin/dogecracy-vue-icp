@@ -19,6 +19,7 @@ actor DogecracyBase {
   private var voters = HashMap.HashMap<Text, HashMap.HashMap<Text, PetitionTypes.Voters>>(1, Text.equal, Text.hash);
   
   stable var petitionFundRaiseEntries : [(Text, FundRaiseTypes.FundBase)] = [];
+  stable var petitionDonationEntries : [(Text, [(Text, FundRaiseTypes.Donation)])] = [];
 
   let fundRaiseService = FundRaise.Service();
 
@@ -31,8 +32,22 @@ actor DogecracyBase {
   };
 
   public shared ({caller}) func setFundRaise(petitionId:Text, amountToRaise: Nat, reason:Text, endDate: Int): async Text {
-    await fundRaiseService.setFundRaise(caller, petitionId, amountToRaise, reason, endDate)
+    // TODO : VERIFY IF IT"S THE OWNER HERE 
+    await fundRaiseService.setFundRaise(petitionId, amountToRaise, reason, endDate)
   };
+
+  public shared func getTotalRaised(petitionId:Text): async Nat {
+    await fundRaiseService.getTotalRaised(petitionId)
+  };
+
+  public shared func getDonations(petitionId:Text) :async [(Text, FundRaiseTypes.Donation)] {
+      await fundRaiseService.getDonations(petitionId)
+  };
+  public shared ({caller}) func getMyDonations(petitionId:Text) :async ?FundRaiseTypes.Donation {
+        await fundRaiseService.getMyDonations(caller, petitionId)
+  };
+
+
 
   private func generateId(callerText : Text) : Text {
     let timestamp = Time.now();
@@ -223,7 +238,9 @@ actor DogecracyBase {
     /* end Voters */
     
     /* FUND RAISE */
-    petitionFundRaiseEntries := Array.freeze(fundRaiseService.preUpgrade())
+    var fundRaisePre:[([var (Text, FundRaiseTypes.FundBase)], [var (Text, [(Text, FundRaiseTypes.Donation)])])] = fundRaiseService.preUpgrade();
+    petitionFundRaiseEntries := Array.freeze(fundRaisePre[0].0);
+    petitionDonationEntries := Array.freeze(fundRaisePre[0].1);
     /* END FUND RAISE */
 
   };
@@ -247,8 +264,9 @@ actor DogecracyBase {
 
 
      /* FUND RAISE */
-    var x = fundRaiseService.postUpgrade(petitionFundRaiseEntries);
-    petitionFundRaiseEntries := []
+    fundRaiseService.postUpgrade(petitionFundRaiseEntries, petitionDonationEntries);
+    petitionFundRaiseEntries := [];
+    petitionDonationEntries :=[];
     /* END FUND RAISE */
 
   };

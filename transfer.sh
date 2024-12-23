@@ -1,6 +1,6 @@
 dfx canister call icrc1 icrc1_transfer "(record {
   amount = 1_000_000;
   to = record {
-    owner = principal \"u3vxk-ycdic-uvbwd-c5tnv-qji4k-oc75a-c4pdo-mhu64-x5dlt-kct3o-rae\";
+    owner = principal \"y7bem-obajc-53ky6-mbans-ljit4-ihlqv-sd4zn-d2l5j-4dmju-l3opk-yqe\";
   };
 })"

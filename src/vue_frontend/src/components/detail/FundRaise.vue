@@ -21,6 +21,7 @@ const donateLoading = ref(false);
 const balance = ref<undefined | number>(undefined);
 const petitionOwner = ref<string | undefined>(undefined);
 const data = ref<undefined | FundBase>(undefined);
+const totalRaised = ref<number>(0);
 const openDonateDialog = ref(false);
 const formattedAmount = ref('')
 const rawAmount = ref('')
@@ -42,9 +43,16 @@ const fetchData = async (petitionId: string | string[]) => {
         try {
             loading.value = true;
             const detail = await actor.getFundRaise(petitionId as string)
-            console.log("detail", detail)
             if (detail.length > 0) {
                 data.value = detail[0]
+                const total = await actor.getTotalRaised(petitionId as string)
+                console.log("mine", total);
+
+                totalRaised.value = Number(total);
+                if (totalRaised.value > 0) {
+                    const mine = await actor.getMyDonations(petitionId as string)
+                    console.log("mine", mine);
+                }
                 loading.value = false;
             } else {
                 throw new Error("NOT_EXISTS")
@@ -60,6 +68,10 @@ watch(() => params.id, fetchData, { immediate: true })
 
 const setOpenDonateDialog = (v: boolean) => {
     openDonateDialog.value = v
+}
+
+const setComment = (e: string) => {
+    comment.value = e
 }
 
 const donateNow = async (e: Event) => {
@@ -125,7 +137,8 @@ const handleAmountInput = (e: Event) => {
             <h3>
                 Collected
             </h3>
-            <div class="font-semibold text-emerald-400 text-xl">34.000.000.000</div>
+            <div class="font-semibold text-emerald-400 text-xl">{{ amountToFormatted((totalRaised ?? 0).toString()) }}
+            </div>
             <div class="text-brand-white text-center bg-gray-900 p-2">{{ data?.reason }}</div>
             <div>
                 <div class="flex justify-between my-4">
@@ -174,6 +187,7 @@ const handleAmountInput = (e: Event) => {
                     <div class="grid w-full items-center space-y-2 gap-1.5 text-black px-2 ">
                         <Label class="" htmlFor="name">Give your comment</Label>
                         <Textarea v-model="comment" type="text" id="name"
+                            @change="(e: any) => setComment(e.target?.value ?? '')"
                             placeholder="Tell the world what you think about the idea"> </Textarea>
                     </div>
                     <Button :disabled="donateLoading" type="submit"
