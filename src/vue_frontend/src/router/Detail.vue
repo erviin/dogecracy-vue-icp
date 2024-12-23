@@ -40,25 +40,25 @@ watch(() => route.params.id, fetchData, { immediate: true })
 </script>
 
 <template>
-    <main class="py-14 md:py-14 px-4">
+    <main class="px-4 py-14 md:py-14">
         <div class="container mx-auto">
             <div class="space-y-20">
-                <div class="w-full  mx-auto text-center">
+                <div class="w-full mx-auto text-center">
                     <h1
                         class="text-2xl !leading-[2.5rem] md:text-5xl font-bold text-white mb-6 text-center md:!leading-[4rem] font-sans">
                         {{ detail?.petitionTitle }}
                     </h1>
-                    <div class="flex items-center justify-center gap-x-4 mb-5 text-gray-300">
-                        <div class="text-base flex items-center gap-x-1 w-fit">
+                    <div class="flex items-center justify-center mb-5 text-gray-300 gap-x-4">
+                        <div class="flex items-center text-base gap-x-1 w-fit">
                             <CircleUser class="size-4 -mt-[1px]" />
                             <div class="text-[#15e6b7] w-36 overflow-hidden text-ellipsis text-nowrap">{{ principalId
                                 ?? ''
                                 }}</div>
                         </div>
-                        <div class="text-base flex-shrink-0">{{ detail ? formatDate(BigInt(detail?.created)) : '' }}
+                        <div class="flex-shrink-0 text-base">{{ detail ? formatDate(BigInt(detail?.created)) : '' }}
                         </div>
                     </div>
-                    <div class="flex items-center gap-3 flex-wrap justify-center">
+                    <div class="flex flex-wrap items-center justify-center gap-3">
                         <Badge class="border-[#15e6b7] font-normal text-[#15e6b7] flex-shrink-0">
                             Environment
                         </Badge>
@@ -71,28 +71,28 @@ watch(() => route.params.id, fetchData, { immediate: true })
                     </div>
                 </div>
 
-                <div class="w-full max-w-7xl mx-auto">
-                    <div class="flex items-start gap-12 flex-col md:flex-row">
+                <div class="w-full mx-auto max-w-7xl">
+                    <div class="flex flex-col items-start gap-12 md:flex-row">
                         <div class="flex-1 space-y-6">
                             <div
                                 class="relative w-full max-h-[30rem] h-full justify-center flex rounded-lg overflow-hidden">
-                                <img class="h-full w-fit rounded-lg"
+                                <img class="h-full rounded-lg w-fit"
                                     :src="detail ? blobToUrl(detail.image) : 'https://placehold.co/1200x1000/111/222/png?text=DogeCracy&font=lato'" />
                             </div>
 
-                            <div class="bg-brand-white/70 text-black rounded-lg p-4 ">
-                                <div class="flex items-center space-x-4 mb-4 border-b pb-4">
+                            <div class="p-4 text-black rounded-lg bg-brand-white/70 ">
+                                <div class="flex items-center pb-4 mb-4 space-x-4 border-b">
                                     <Avatar class="w-16 h-16 bg-gray-800">
                                         <AvatarImage src="/placeholder-avatar.jpg" alt="User's avatar" />
                                         <AvatarFallback class="bg-gray-800 text-brand font-intro">DGC</AvatarFallback>
                                     </Avatar>
                                     <div class="">
-                                        <h1 class=" font-intro text-2xl">Why it's important?</h1>
+                                        <h1 class="text-2xl  font-intro">Why it's important?</h1>
                                         <div>Started by <span class="font-semibold">0xzczxcdf89</span></div>
                                     </div>
                                 </div>
                                 <div v-html="detail?.petitionDesc"
-                                    class="whitespace-pre-line  leading-loose text-justify text-lg px-6 py-2">
+                                    class="px-6 py-2 text-lg leading-loose text-justify whitespace-pre-line">
                                 </div>
                             </div>
 
@@ -135,11 +135,11 @@ watch(() => route.params.id, fetchData, { immediate: true })
                             </div>
 
                         </div>
-                        <div class="md:w-80 w-full flex-shrink-0 space-y-6 sticky top-36">
+                        <div class="sticky flex-shrink-0 w-full space-y-6 md:w-80 top-36">
 
                             <div>
                                 <!-- {isReported && <p
-                                    class="bg-transparent text-red-500 w-full h-12 rounded-lg flex items-center justify-center border border-red-500">
+                                    class="flex items-center justify-center w-full h-12 text-red-500 bg-transparent border border-red-500 rounded-lg">
                                     You reported this petition</p>} -->
 
 
@@ -161,8 +161,8 @@ watch(() => route.params.id, fetchData, { immediate: true })
                     </div>
                 </div>
 
-                <div class="w-full max-w-7xl mx-auto">
-                    <h2 class="font-medium text-lg mb-3 flex items-center gap-x-2 leading-none">
+                <div class="w-full mx-auto max-w-7xl">
+                    <h2 class="flex items-center mb-3 text-lg font-medium leading-none gap-x-2">
                         <Newspaper class="text-[#ec4899] size-6" />
                         <span>More Smiliar Petitions</span>
                     </h2>
@@ -176,7 +176,7 @@ watch(() => route.params.id, fetchData, { immediate: true })
                                         <Card
                                             class="bg-black overflow-hidden group cursor-pointer border-[#111111]">
                                             <Link href={"/explorer/" + index} prefetch={false}>
-                                            <div class="relative h-32 w-full overflow-hidden">
+                                            <div class="relative w-full h-32 overflow-hidden">
                                                 <img src="https://placehold.co/600x400/111/222/png?text=DogeCracy&font=lato"
                                                     alt="Title" fill="true" sizes="100%" style={{ objectFit: "cover"
                                                     }} />
@@ -186,36 +186,36 @@ watch(() => route.params.id, fetchData, { immediate: true })
                                                     class="font-semibold line-clamp-1 mb-1 group-hover:text-[#FFAC43]">
                                                     Improve Public Transportation
                                                 </h3>
-                                                <div class="flex items-center gap-x-4 mb-5 text-gray-300">
-                                                    <div class="text-xs flex items-center gap-x-1">
+                                                <div class="flex items-center mb-5 text-gray-300 gap-x-4">
+                                                    <div class="flex items-center text-xs gap-x-1">
                                                         <CircleUser class="size-3 -mt-[1px]" />{" "}
                                                         <span class="text-[#15e6b7]">
                                                             0xFe34...95b85E
                                                         </span>
                                                     </div>
-                                                    <div class="text-xs flex-shrink-0">
+                                                    <div class="flex-shrink-0 text-xs">
                                                         1/1/2025
                                                     </div>
                                                 </div>
-                                                <p class="text-sm line-clamp-2 text-gray-300">
+                                                <p class="text-sm text-gray-300 line-clamp-2">
                                                     Increase bus frequency and add more bike
                                                     lanes
                                                 </p>
                                             </CardContent>
-                                            <CardFooter class="px-4 pb-4 pt-0">
+                                            <CardFooter class="px-4 pt-0 pb-4">
                                                 <div
-                                                    class="flex items-center gap-x-4 justify-between w-full overflow-hidden">
+                                                    class="flex items-center justify-between w-full overflow-hidden gap-x-4">
                                                     <Badge
                                                         class="border-[#15e6b7] font-normal text-[#15e6b7] flex-shrink-0">
                                                         Environment
                                                     </Badge>
-                                                    <div class="flex-1 flex w-full justify-start overflow-hidden">
+                                                    <div class="flex justify-start flex-1 w-full overflow-hidden">
                                                         <div
-                                                            class="inline-flex w-full items-center space-x-2 justify-end text-white font-normal text-sm">
+                                                            class="inline-flex items-center justify-end w-full space-x-2 text-sm font-normal text-white">
                                                             <Signature
                                                                 class="size-4 text-[#FFAC43] flex-shrink-0" />{" "}
                                                             <span
-                                                                class="overflow-hidden whitespace-nowrap  text-ellipsis">
+                                                                class="overflow-hidden whitespace-nowrap text-ellipsis">
                                                                 231 signatures
                                                             </span>
                                                         </div>

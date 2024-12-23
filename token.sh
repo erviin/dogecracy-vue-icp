@@ -7,7 +7,7 @@ dfx deploy icrc1 --argument '( record {
       initial_balances = vec {                                
           record {                                            
               record {                                        
-                  owner = principal "weulk-l4r56-5wp5r-xiixu-mmpzq-g6xp2-lwqw4-ke44h-mjadx-jo3zo-yqe";   
+                  owner = principal "cet47-p4qzy-4bymg-dqlpy-fpwqg-yyrpg-sksxr-6vwhy-ff5u2-yjp6f-qae";   
                   subaccount = null;                          
               };                                              
               100_000_000                                 

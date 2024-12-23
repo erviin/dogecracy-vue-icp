@@ -17,7 +17,7 @@ async function handleSubmit(e) {
 </script>
 
 <template>
-  <div class="min-h-screen bg-black text-brand-white flex flex-col justify-between">
+  <div class="flex flex-col justify-between min-h-screen bg-black text-brand-white">
     <Header></Header>
     <RouterView />
     <Footer></Footer>
