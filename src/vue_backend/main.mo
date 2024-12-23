@@ -43,9 +43,6 @@ actor DogecracyBase {
   public shared func getDonations(petitionId:Text) :async [(Text, FundRaiseTypes.Donation)] {
       await fundRaiseService.getDonations(petitionId)
   };
-  public shared ({caller}) func getMyDonations(petitionId:Text) :async ?FundRaiseTypes.Donation {
-        await fundRaiseService.getMyDonations(caller, petitionId)
-  };
 
 
 

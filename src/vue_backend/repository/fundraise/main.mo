@@ -5,6 +5,7 @@ import Principal "mo:base/Principal";
 import Time "mo:base/Time";
 import Iter "mo:base/Iter";
 import Array "mo:base/Array";
+import Int "mo:base/Int";
 import FundRaiseTypes "./types";
 
 module {
@@ -18,6 +19,7 @@ module {
             let newDonation: FundRaiseTypes.Donation = {
                         comment = args.comment;
                         txIndex = txIndex;
+                        principal = callerText;
                         amount = args.amount;
                         created = createdTime;
                     };
@@ -25,12 +27,12 @@ module {
             switch(donations.get(args.petitionId)) {
                 case (null) {
                     var temp = HashMap.HashMap<Text, FundRaiseTypes.Donation>(1, Text.equal, Text.hash);
-                    temp.put(callerText, newDonation);
+                    temp.put(Int.toText(Time.now()), newDonation);
                     donations.put(args.petitionId, temp);
                     "ok"
                 };
                 case (?existing) {
-                    existing.put(callerText, newDonation);
+                    existing.put(Int.toText(Time.now()), newDonation);
                     "ok"
                 };
             };
@@ -58,18 +60,6 @@ module {
                 };
                 case (_) {
                     return [];
-                };
-            };
-        };
-
-        public func getMyDonations(caller:Principal, petitionId:Text) :async ?FundRaiseTypes.Donation {
-            let callerText = Principal.toText(caller);
-            switch (donations.get(petitionId)) {
-                case (?donation) {
-                    return donation.get(callerText);
-                };
-                case (_) {
-                    return null;
                 };
             };
         };

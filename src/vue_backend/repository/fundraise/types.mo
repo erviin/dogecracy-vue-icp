@@ -1,5 +1,4 @@
 import Nat "mo:base/Nat";
-import Principal "mo:base/Principal";
 module FundRaiseTypes {
     public type FundBase = {
         petitionId : Text;
@@ -12,6 +11,7 @@ module FundRaiseTypes {
     public type Donation = {
         amount: Nat;
         comment : Text;
+        principal : Text;
         txIndex: Nat;
         created : Int;
     };

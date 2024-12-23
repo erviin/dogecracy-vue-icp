@@ -50,7 +50,7 @@ const fetchData = async (petitionId: string | string[]) => {
 
                 totalRaised.value = Number(total);
                 if (totalRaised.value > 0) {
-                    const mine = await actor.getMyDonations(petitionId as string)
+                    const mine = await actor.getDonations(petitionId as string)
                     console.log("mine", mine);
                 }
                 loading.value = false;

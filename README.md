@@ -38,16 +38,35 @@ let appCanister = actor("YOUR_CANISTER_ID_VUE_BACKEND") : actor {
         donate : shared (caller:Principal, txIndex:Nat, args:FundRaiseTypes.DonationArgs) -> async Text;
     };
 ```
-save it and run 
+save it,
+next is deploying our token but before 
+run `dfx identity get-principal` you will see your identity 
+paste in token.sh  on line 10 `  owner = principal "YOUR_PRINCIPAL_TEXT";    `
+save and run 
 ```
 sh token.sh
+```
 
+```
 sh frontend.sh
 ```
 
+you can start develop by running `npm start`
 
-Once the job completes, your application will be available at `http://localhost:4943?canisterId={asset_canister_id}`.
+and login with internet identity.
 
+once you logged in you will see your principal text inside you profile, inspect the element to see full
+
+with that you can start transfer token to that account by updating transfer.sh on line 4 `owner = principal \"YOUR_PRINCIPAL_FROM_FRONTEND\";`
+save and run
+```
+sh transfer.sh
+```
+once completed you will have 1.000.000 token
+
+
+
+### DEVELOPMENT
 If you have made changes to your backend canister, you can generate a new candid interface with
 
 ```bash
